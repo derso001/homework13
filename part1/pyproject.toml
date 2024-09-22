@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "homework12"
+name = "homework13.1"
 version = "0.1.0"
 description = ""
 package-mode = false
@@ -19,6 +19,7 @@ python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 python-multipart = "^0.0.9"
 python-dotenv = "^1.0.1"
+alembic = "^1.13.2"
 
 
 [build-system]

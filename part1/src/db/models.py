@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, Date, DateTime, ForeignKey, func
+from sqlalchemy import create_engine, Column, Integer, String, Date, DateTime, ForeignKey, Boolean, func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
@@ -26,4 +26,5 @@ class User(Base):
     created_at = Column('crated_at', DateTime, default=func.now())
     avatar = Column(String(255), nullable=True)
     refresh_token = Column(String(255), nullable=True)
+    confirmed = Column(Boolean, default=False)
     contacts = relationship("Contact", back_populates="user")

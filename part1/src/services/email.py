@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
@@ -7,15 +8,21 @@ from pydantic import EmailStr
 
 from src.services.auth import auth_service
 
+load_dotenv()
+
+# mail_from = os.getenv('MAIL_FROM')
+# print(mail_from)
+# print(type(mail_from))
+
 conf = ConnectionConfig(
     MAIL_USERNAME=os.getenv('MAIL_USERNAME'),
     MAIL_PASSWORD=os.getenv('MAIL_PASSWORD'),
-    MAIL_FROM=EmailStr(os.getenv('MAIL_FROM')),
-    MAIL_PORT=os.getenv('MAIL_PORT'),
+    MAIL_FROM=os.getenv('MAIL_FROM'),
+    MAIL_PORT=int(os.getenv('MAIL_PORT')),
     MAIL_SERVER=os.getenv('MAIL_SERVER'),
     MAIL_FROM_NAME="Desired Name",
-    MAIL_STARTTLS=False,
-    MAIL_SSL_TLS=True,
+    MAIL_STARTTLS=False,  # TLS отключен
+    MAIL_SSL_TLS=True,    # Включить SSL
     USE_CREDENTIALS=True,
     VALIDATE_CERTS=True,
     TEMPLATE_FOLDER=Path(__file__).parent / 'templates',

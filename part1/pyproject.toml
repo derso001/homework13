@@ -23,6 +23,7 @@ alembic = "^1.13.2"
 fastapi-mail = "^1.4.1"
 redis = "^5.0.8"
 fastapi-limiter = "^0.1.6"
+cloudinary = "^1.41.0"
 
 
 [build-system]

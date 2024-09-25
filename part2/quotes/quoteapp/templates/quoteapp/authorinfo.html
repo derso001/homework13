@@ -1,0 +1,17 @@
+{% extends "quoteapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <div>
+        {{ author.fullname }}
+    </div>
+    <div>
+        Born: {{ author.born_date }} {{ author.born_location }}
+    </div>
+    <div>
+        {{ author.description }}
+    </div>
+</div>
+
+{% endblock %}
